@@ -1,0 +1,15 @@
+---
+- name: Create www directory
+  file:
+    path: /srv/www
+    state: directory
+    owner: www-data
+    group: www-data
+    mode: 0775
+    recurse: yes
+
+- name: Clone website repo
+  git:
+    repo: "https://github.com/kashizui/sckoo-net.git"
+    dest: /srv/www/sckoonet
+
